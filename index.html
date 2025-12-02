@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>ReChange - AI Image Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+      :root {
+        --bs-body-bg: #09090b; /* Zinc 950 */
+        --bs-body-color: #e4e4e7;
+        --bs-font-sans-serif: 'Inter', sans-serif;
+        --bs-primary: #6366f1; /* Indigo */
+        --bs-border-color: #27272a;
+      }
+      
+      body {
+        font-family: var(--bs-font-sans-serif);
+        background-color: var(--bs-body-bg);
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      /* Brand Gradients */
+      .bg-brand-gradient {
+        background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+      }
+      
+      .text-brand-gradient {
+        background: linear-gradient(135deg, #818cf8 0%, #f472b6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .btn-brand {
+        background: linear-gradient(135deg, #6366f1 0%, #db2777 100%);
+        border: none;
+        color: white;
+        transition: all 0.3s ease;
+      }
+      .btn-brand:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        color: white;
+        box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #3f3f46;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #52525b;
+      }
+
+      /* Premium Dark Overrides */
+      .bg-glass {
+        background: rgba(9, 9, 11, 0.85);
+        backdrop-filter: blur(12px);
+      }
+      
+      .border-premium {
+        border-color: #27272a !important;
+      }
+
+      .sidebar-link {
+        color: #a1a1aa;
+        text-decoration: none;
+        padding: 12px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.2s;
+        border: 1px solid transparent;
+      }
+      .sidebar-link:hover {
+        background-color: #18181b;
+        color: #fff;
+      }
+      .sidebar-link.active {
+        background: linear-gradient(90deg, rgba(99, 102, 241, 0.1) 0%, transparent 100%);
+        border-left: 3px solid #6366f1;
+        color: #fff;
+        border-radius: 4px 12px 12px 4px;
+      }
+
+      .chat-input-container {
+        background-color: #18181b;
+        border: 1px solid #27272a;
+        border-radius: 24px;
+        transition: all 0.2s;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      }
+      .chat-input-container:focus-within {
+        border-color: #6366f1;
+        box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.3);
+      }
+      
+      .form-control-plaintext {
+        color: #fff;
+        resize: none;
+      }
+      .form-control-plaintext:focus {
+        outline: none;
+      }
+
+      /* Gallery Grid */
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        border: 1px solid #27272a;
+        aspect-ratio: 1/1;
+        background: #09090b;
+      }
+      .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        opacity: 0;
+        transition: opacity 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 16px;
+      }
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+
+      .btn-upload {
+        transition: all 0.3s;
+      }
+      .btn-upload:hover {
+        transform: rotate(90deg);
+        color: #ec4899 !important; 
+      }
+      
+      /* Utilities */
+      .text-xs { font-size: 0.75rem; }
+      .text-sm { font-size: 0.875rem; }
+      .cursor-pointer { cursor: pointer; }
+      .fw-medium { font-weight: 500; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root" class="h-100 w-100"></div>
+    
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
